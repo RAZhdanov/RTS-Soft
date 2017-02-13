@@ -1,5 +1,6 @@
 
 #include "Image.h"
+using namespace MyImageNameSpace;
 
 int main(int argc, char **argv) {
 	
