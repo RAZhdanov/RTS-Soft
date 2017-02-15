@@ -4,11 +4,21 @@
 #include <memory> //shared_ptr, weak_ptr
 #include <iostream>
 #include "tree.h" //definition of Tree class
+void PushMatObjectsIntoBinaryTree(Tree<cv::Mat> &, cv::Mat &);
 
 int main(int argc, char **argv) {
 	setlocale(LC_ALL, "");
 	cv::Mat image, gray;
 	Tree<cv::Mat> tree, tree1;
+	PushMatObjectsIntoBinaryTree(tree, image);
+	tree1 = tree;
+	tree1(tree);
+	return 0;
+}
+
+void PushMatObjectsIntoBinaryTree(Tree<cv::Mat> &tree, cv::Mat &image)
+{
+	cv::Mat gray;
 	int number_of_files = 0;
 	OPENFILENAMEA ofn;
 	static char szFile[MAX_PATH];
@@ -57,9 +67,5 @@ int main(int argc, char **argv) {
 			}
 		}
 	}
-	tree1 = tree;
-	tree1(tree);
-
 	
-	return 0;
 }
